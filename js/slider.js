@@ -7,14 +7,15 @@ const slides = [
 ]
 
 let wrapperEl = document.querySelector('.slider .slides-wrapper')
+let liDom = []
+let liElement
+//MILESTONE 1
 
-// PER OGNI stringa dell'array slides
 for (let i = 0; i < slides.length; i++) {
     let img = document.createElement('img')
-    img.src = slides[i]
-    
+    img.src = slides[i]   
 
-    let liElement = document.createElement('li')
+    liElement = document.createElement('li')
     liElement.className = 'slide'
 
     if (i === 0) {
@@ -23,13 +24,38 @@ for (let i = 0; i < slides.length; i++) {
 
     liElement.append(img)
     wrapperEl.append(liElement)
+
+    liDom.push(liElement)
 }
-    //creare un tag img 
-    // assegnarli um src
-    // creare un li e assegnargli la classe .slide
-        //SE è il primo 
-            //allora assegnarli la classe .active
+
+console.dir(liDom[0])
+let i = 0
+
+//MILESTONE 2
+
+//AL CLICK di una delle freccette:
+    //PER OGNI click
 
 
 
+let nextButton = document.querySelector('.arrow-next')
+nextButton.addEventListener('click', function() {
+    
+    let currentSlide = liDom[i]
+    currentSlide.classList.remove('active')
+    let nextSlide = liDom[i + 1] 
+    nextSlide.classList.add('active')
+    i++
+    console.log(i)
 
+})
+
+let prevButton = document.querySelector('.arrow-prev')
+prevButton.addEventListener('click', function() {
+    
+    liDom[i].classList.remove('active')
+    let nextSlide = liDom[i - 1] 
+    nextSlide.classList.add('active')
+    i--
+    console.log(i)
+})
