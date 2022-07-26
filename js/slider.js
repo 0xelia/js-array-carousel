@@ -40,6 +40,12 @@ let i = 0
 
 let nextButton = document.querySelector('.arrow-next')
 nextButton.addEventListener('click', function() {
+    if (i === liDom.length - 1) {
+        i = 0
+        liDom[(liDom.length - 1)].classList.remove('active')
+        liDom[i].classList.add('active')
+        nextSlide = liDom[0]
+    }
     
     let currentSlide = liDom[i]
     currentSlide.classList.remove('active')
@@ -52,7 +58,15 @@ nextButton.addEventListener('click', function() {
 
 let prevButton = document.querySelector('.arrow-prev')
 prevButton.addEventListener('click', function() {
-    
+    //bonus
+    if (i === 0) {
+        i = liDom.length - 1
+        liDom[0].classList.remove('active')
+        liDom[i].classList.add('active')
+        nextSlide = liDom[i]
+    }
+    //fine bonus
+
     liDom[i].classList.remove('active')
     let nextSlide = liDom[i - 1] 
     nextSlide.classList.add('active')
