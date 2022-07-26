@@ -1,1 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+ul, ol, li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+.slider .slide img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    height: 250px;
+    width: 450px;
+}
+
+.slide {
+    display: none;
+    justify-content: center;
+}
+
+.slide.active {
+    display: flex;
+}
